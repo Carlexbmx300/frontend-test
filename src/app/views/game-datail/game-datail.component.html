@@ -1,0 +1,42 @@
+<div class="container" *ngIf="!(loadingGame$ | async)">
+    <div class="row text-end m-5">
+        <app-back-button (action)="goBack()" title="regresar"></app-back-button>
+    </div>
+    <div class="row">
+        <h1>{{game.title}}</h1>
+    </div>
+    <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 ">
+            <img class="img-fluid" [src]="game.thumbnail" alt="game-image">
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+              <p><strong>Lanzamiento   :</strong>{{game.release_date}}</p>
+              <p><strong>Genero        :</strong>{{game.genre}}</p>
+              <p><strong>Plataforma    :</strong>{{game.platform}}</p>
+              <p><strong>Desarrollador :</strong>{{game.developer}}</p>
+              <p><strong>Editora       :</strong>{{game.publisher}}</p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <h3>Capturas de pantalla:</h3>
+        <div class="row">
+            <div class="image-container col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12" *ngFor="let image of game.screenshots">
+                <img class="m-3" [src]="image.image" [alt]="image.id" width="300">
+            </div>
+        </div>  
+    </div>
+    <div class="row mt-5">
+        <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 col-12">
+            <h3>Acerca de {{game.title}}</h3>
+            <p>{{game.description}}</p>
+        </div>
+        <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12">
+            <h3>Requeriminentos minimos del sistema</h3>
+            <p><strong>Sistema operativo: </strong>{{game.minimum_system_requirements.os}}</p>
+            <p><strong>Graficos: </strong>{{game.minimum_system_requirements.graphics}}</p>
+            <p><strong>Memoria:</strong>{{game.minimum_system_requirements.memory}}</p>
+            <p><strong>Almacenamiento</strong>{{game.minimum_system_requirements.storage}}</p>
+            <p><strong>Procesador</strong> {{game.minimum_system_requirements.processor}}</p>
+        </div>
+    </div>
+</div>

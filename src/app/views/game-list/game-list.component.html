@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <app-filter [query]="query" [options]="options" (onSearch)="search($event)" (onSelectOption)="onSelect($event)"></app-filter>
+            <app-list [games]="games" [query]="query" (action)="toDetail($event)"></app-list>
+        </div>
+    </div>
+</div>

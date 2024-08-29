@@ -1,0 +1,14 @@
+<div class="container card-container">
+    <div class="row">
+        <div class="col-12 col-xl-3 col-sm-6 col-md-6" *ngFor="let game of games | filterPipe:query:'title'; let i = index">
+            <div class="card m-5" style="width: 15rem;">
+                <img [src]="game.thumbnail" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{game.title}}</h5>
+                  <p class="card-text">{{game.short_description}}</p>
+                  <button class="btn btn-primary" (click)="onClick(game.id)">VER</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

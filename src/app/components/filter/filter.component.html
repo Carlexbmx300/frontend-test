@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-xl-4 ">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Buscar por nombre...</label>
+                <input 
+                [value]="query"
+                type="text" 
+                class="form-control" 
+                id="exampleFormControlInput1"
+                placeholder="Buscar..."
+                (keyup)="search($event)">
+              </div>
+        </div>
+        <div class="col-12 col-xl-4 col-md-6 col-sm-6">
+            <label for="exampleFormControlInput2" class="form-label">Buscar por genero...</label>
+            <select 
+            (change)="onSelect($event, 'category')"
+            class="form-select" 
+            id="exampleFormControlInput2"
+            aria-label="Default select example">
+                <option selected disabled>Generos</option>
+                <option selected value="">Todos</option>
+                <option *ngFor="let option of options.genres" [value]="option">{{option | titlecase}}</option>
+            </select>
+        </div>
+        <div class="col-12 col-xl-4 col-md-6 col-sm-6">
+            <label for="exampleFormControlInput3" class="form-label">Buscar por plataforma...</label>
+            <select 
+            (change)="onSelect($event, 'platform')"
+            class="form-select" 
+            id="exampleFormControlInput3"
+            aria-label="Default select example">
+                <option selected disabled>Plataformas</option>
+                <option selected value="all">Todos</option>
+                <option *ngFor="let option of options.platforms" [value]="option">{{option | titlecase}}</option>
+              </select>
+        </div>
+    </div>
+</div>
+
